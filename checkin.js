@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 'use strict'
 
-require('envoodoo')()
+var path = require('path')
+require('envoodoo')(path.resolve(__dirname, '.env'))
 var geolocate = require('geolocate')
 var https = require('https')
 
