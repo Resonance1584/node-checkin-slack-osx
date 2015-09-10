@@ -4,7 +4,7 @@
 var path = require('path')
 require('envoodoo')(path.resolve(__dirname, '.env'))
 var geolocate = require('geolocate')
-var https = require('https')
+var getJSON = require('./lib/getJSON')
 
 var allowedTypes = require('./placesTypes.json')
 
@@ -21,48 +21,14 @@ if (!googleApiKey || !slackApiKey || !channelId || !username) {
 }
 
 function notifySlack (locationString) {
-  var msg = encodeURIComponent(username + ' checked in near ' + locationString + ' (' + (new Date(Date.now())).toString() + ')')
-  var slackUrl = 'https://slack.com/api/chat.postMessage?token=' + slackApiKey + '&channel=' + channelId + '&username=' + botName + '&text=' + msg
+  var msg = username + ' checked in near ' + locationString + ' (' + (new Date(Date.now())).toString() + ')'
+  var slackUrl = 'https://slack.com/api/chat.postMessage?token=' + slackApiKey + '&channel=' + channelId + '&username=' + botName + '&text=' + encodeURIComponent(msg)
   getJSON(slackUrl, function (err, res) {
     if (err) {
       console.error(err)
       process.exit()
     }
     console.log(msg)
-  })
-}
-
-function getJSON (url, done) {
-  var wasError = false
-  https.get(url, function (res) {
-    var data = ''
-    res.on('data', function (d) {
-      data += d
-    })
-    res.on('end', function () {
-      var result
-      try {
-        result = JSON.parse(data)
-      } catch (e) {
-        wasError = true
-        console.error(data)
-        done(e)
-      }
-      if (result.error_message) {
-        wasError = true
-        done(new Error('Google API Error: ' + result.error_message))
-      }
-      if (result.error) {
-        wasError = true
-        done(new Error('Slack API Error: ' + result.error))
-      }
-      if (!wasError) {
-        done(null, result)
-      }
-    })
-  }).on('error', function (e) {
-    wasError = true
-    done(e)
   })
 }
 
