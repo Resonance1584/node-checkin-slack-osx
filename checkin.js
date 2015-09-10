@@ -41,7 +41,12 @@ function getJSON (url, done) {
         result = JSON.parse(data)
       } catch (e) {
         wasError = true
+        console.error(data)
         done(e)
+      }
+      if (result.error_message) {
+        wasError = true
+        done(new Error('Google API Error: ' + result.error_message))
       }
       if (!wasError) {
         done(null, result)
