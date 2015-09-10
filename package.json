@@ -11,9 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "envoodoo": "^2.1.1",
-    "geolocation": "^0.2.0"
+    "geolocate": "0.0.1"
   },
   "devDependencies": {
     "standard": "^5.2.2"
-  }
+  },
+  "bin": {
+    "slackcheckin": "./checkin.js"
+  },
+  "preferGlobal": true
 }

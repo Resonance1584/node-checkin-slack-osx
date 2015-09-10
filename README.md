@@ -33,17 +33,17 @@ LOCALE_TYPE should be a valid Google Reverse Geocode location type. Defaults to 
 ## Usage
 
 ```
-npm start
+slackcheckin
 ```
 Sends a message to the configured slack channel checking you in to the nearest region of the type configured.
 
 e.g.
 
-`npm start` **Lewis checked in near Whittier, Boulder, CO, USA (Thu Sep 10 2015 13:10:15 GMT-0600 (MDT))**
+`slackcheckin` **Lewis checked in near Whittier, Boulder, CO, USA (Thu Sep 10 2015 13:10:15 GMT-0600 (MDT))**
 
 
 ```
-npm start [placeType]
+slackcheckin [placeType]
 ```
 
 Sends a message to the configured slack channel checking you in to the nearest found Google Place which matches the given placeType
@@ -51,4 +51,4 @@ Sends a message to the configured slack channel checking you in to the nearest f
 
 e.g.
 
-`npm start cafe` **Lewis checked in near Jetty Espressoria, 2116 Pearl Street, Boulder (Thu Sep 10 2015 13:14:04 GMT-0600 (MDT))**
+`slackcheckin cafe` **Lewis checked in near Jetty Espressoria, 2116 Pearl Street, Boulder (Thu Sep 10 2015 13:14:04 GMT-0600 (MDT))**
