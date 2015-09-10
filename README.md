@@ -6,7 +6,20 @@ This package allows a user to send a location checkin message to the [slack](htt
 
 You must register a Google API key with Places search and Reverse Geocoding services enabled.
 
+Go to the [Google Developers Console](https://console.developers.google.com/)
+- Create a new Project
+- Go to APIs & Auth -> Credentials
+- Add an API Key
+- Paste this Key into your .env
+- Go to APIs & Auth -> APIs
+- Enable **Google Maps Geocoding API** and **Google Places API Web Service**
+
 You must register a Slack API key.
+
+Go to [Slack Web API](https://api.slack.com/web)
+- Scroll down to Authentication
+- Issue a token (key)
+- Paste this Key into your .env
 
 ```
 npm install
