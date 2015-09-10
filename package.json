@@ -1,0 +1,19 @@
+{
+  "name": "checkin-osx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "checkin.js",
+  "scripts": {
+    "start": "node checkin.js",
+    "test": "./node_modules/standard/bin/cmd.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "envoodoo": "^2.1.1",
+    "geolocation": "^0.2.0"
+  },
+  "devDependencies": {
+    "standard": "^5.2.2"
+  }
+}
