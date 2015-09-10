@@ -11,7 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "envoodoo": "^2.1.1",
-    "geolocate": "0.0.1"
+    "geolocate": "0.0.1",
+    "minimist": "^1.2.0",
+    "osenv": "^0.1.3",
+    "read": "^1.0.7"
   },
   "devDependencies": {
     "standard": "^5.2.2"
