@@ -23,8 +23,12 @@ if (!googleApiKey || !slackApiKey || !channelId || !username) {
 function notifySlack (locationString) {
   var msg = encodeURIComponent(username + ' checked in near ' + locationString + ' (' + (new Date(Date.now())).toString() + ')')
   var slackUrl = 'https://slack.com/api/chat.postMessage?token=' + slackApiKey + '&channel=' + channelId + '&username=' + botName + '&text=' + msg
-  https.get(slackUrl).on('error', function (e) {
-    console.error(e)
+  getJSON(slackUrl, function (err, res) {
+    if (err) {
+      console.error(err)
+      process.exit()
+    }
+    console.log(msg)
   })
 }
 
@@ -47,6 +51,10 @@ function getJSON (url, done) {
       if (result.error_message) {
         wasError = true
         done(new Error('Google API Error: ' + result.error_message))
+      }
+      if (result.error) {
+        wasError = true
+        done(new Error('Slack API Error: ' + result.error))
       }
       if (!wasError) {
         done(null, result)
