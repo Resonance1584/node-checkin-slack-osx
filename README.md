@@ -1,4 +1,4 @@
-# checkin-osx
+# node-checkin-slack-osx
 
 This package allows a user to send a location checkin message to the [slack](https://slack.com/) channel of their choice.
 
