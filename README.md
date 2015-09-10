@@ -30,6 +30,13 @@ Edit values of .env with your keys and preferences.
 
 LOCALE_TYPE should be a valid Google Reverse Geocode location type. Defaults to 'neighbourhood'.
 
+## CLI Installation
+
+To add slackcheckin as a command to your shell execute
+```
+npm link .
+```
+
 ## Usage
 
 ```
