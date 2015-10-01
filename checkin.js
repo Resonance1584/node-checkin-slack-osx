@@ -13,7 +13,7 @@ var slackApiKey = process.env.SLACK_API_KEY
 var channelId = process.env.CHANNEL_ID
 var username = process.env.USERNAME
 var botName = process.env.BOT_NAME || 'LocationBot'
-var localeType = process.env.LOCALE_TYPE || 'neighborhood'
+var addressType = process.env.ADDRESS_TYPE || 'neighborhood'
 
 if (!googleApiKey || !slackApiKey || !channelId || !username) {
   console.error('GOOGLE_API_KEY, SLACK_API_KEY, CHANNEL_ID and USERNAME must be set in .env or passed as environment variables')
@@ -61,14 +61,14 @@ geolocate(function (latLong) {
         console.error(err)
         process.exit()
       }
-      var requestedLocales = result.results.filter(function (locale) {
-        return locale.types.indexOf(localeType) >= 0 && locale.formatted_address
+      var requestedAddresses = result.results.filter(function (address) {
+        return address.types.indexOf(addressType) >= 0 && address.formatted_address
       })
 
-      if (!requestedLocales[0]) {
-        console.error('Could not find a ' + localeType + ' for this location')
+      if (!requestedAddresses[0]) {
+        console.error('Could not find a ' + addressType + ' for this location')
       } else {
-        notifySlack(requestedLocales[0].formatted_address)
+        notifySlack(requestedAddresses[0].formatted_address)
       }
     })
   }

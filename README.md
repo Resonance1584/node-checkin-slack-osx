@@ -28,7 +28,7 @@ cp .env-example .env
 
 Edit values of .env with your keys and preferences.
 
-LOCALE_TYPE should be a valid Google Reverse Geocode location type. Defaults to 'neighbourhood'.
+ADDRESS_TYPE should be a valid [Google Reverse Geocode address type](https://developers.google.com/maps/documentation/geocoding/intro#Types). Defaults to 'neighbourhood'.
 
 ## CLI Installation
 
