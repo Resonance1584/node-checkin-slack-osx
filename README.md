@@ -9,7 +9,7 @@ You must register a Google API key with Places search and Reverse Geocoding serv
 Go to the [Google Developers Console](https://console.developers.google.com/)
 - Create a new Project
 - Go to APIs & Auth -> Credentials
-- Add an API Key
+- Add an API Key (Server is fine)
 - Paste this Key into your .env
 - Go to APIs & Auth -> APIs
 - Enable **Google Maps Geocoding API** and **Google Places API Web Service**
@@ -28,7 +28,9 @@ cp .env-example .env
 
 Edit values of .env with your keys and preferences.
 
-LOCALE_TYPE should be a valid Google Reverse Geocode location type. Defaults to 'neighbourhood'.
+CHANNEL_ID can be found by hitting https://slack.com/api/channels.list?token=your-api-token
+
+ADDRESS_TYPE should be a valid [Google Reverse Geocode address type](https://developers.google.com/maps/documentation/geocoding/intro#Types). Defaults to 'neighbourhood'.
 
 ## CLI Installation
 
