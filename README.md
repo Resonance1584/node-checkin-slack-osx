@@ -9,7 +9,7 @@ You must register a Google API key with Places search and Reverse Geocoding serv
 Go to the [Google Developers Console](https://console.developers.google.com/)
 - Create a new Project
 - Go to APIs & Auth -> Credentials
-- Add an API Key
+- Add an API Key (Server is fine)
 - Paste this Key into your .env
 - Go to APIs & Auth -> APIs
 - Enable **Google Maps Geocoding API** and **Google Places API Web Service**
