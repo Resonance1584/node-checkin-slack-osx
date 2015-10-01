@@ -28,6 +28,8 @@ cp .env-example .env
 
 Edit values of .env with your keys and preferences.
 
+CHANNEL_ID can be found by hitting https://slack.com/api/channels.list?token=your-api-token
+
 ADDRESS_TYPE should be a valid [Google Reverse Geocode address type](https://developers.google.com/maps/documentation/geocoding/intro#Types). Defaults to 'neighbourhood'.
 
 ## CLI Installation
